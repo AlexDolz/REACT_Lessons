@@ -1,4 +1,5 @@
 import Block from '../Block/Block';
+import Content from '../Content/Content';
 
 // 1) Peredat parametr kak atribut vnutri komponenta
 // 2) Polucit na storone vizivajemogo komponenta
@@ -23,15 +24,36 @@ import Block from '../Block/Block';
 function App() {
   return (
     <div>
-      <Block title={'Title 1'} text={'Text 1'} color={'yellow'} size={'l'} />
-      <Block title={'Title 2'} text={'Text 2'} color={'pink'} size={'m'} />
-      <Block title={'Title 3'} text={'Text 3'} color={'green'} size={'xl'} />
+      {/* <Block
+        title={'Title 1'}
+        text={'Text 1'}
+        color={'yellow'}
+        size={'l'}
+        isRead={false}
+      />
+      <Block
+        title={'Title 2'}
+        text={'Text 2'}
+        color={'pink'}
+        size={'m'}
+        isRead={false}
+      />
+      <Block
+        title={'Title 3'}
+        text={'Text 3'}
+        color={'green'}
+        size={'xl'}
+        isRead={true}
+      /> */}
       {/* <Block
         title={'Title 3'}
         text={'Text 3'}
         color={'linear-gradient(to right, red, yellow'}
         size={'xl'}
       /> */}
+      <Content color={'green'} discountPrice={1000} price={1500} />
+      <Content color={'lightblue'} discountPrice={2000} price={2200} />
+      <Content color={'yellow'} discountPrice={400} price={900} />
     </div>
   );
 }

@@ -5,11 +5,12 @@ import './Block.css';
 function Block(props) {
   // const title = props.title;
   // const text = props.text;
-  const { title, text, color, size } = props;
+  const { title, text, color, size, isRead } = props;
   return (
     <div className={`block_item ${size}`} style={{ background: color }}>
       <h2>{title}</h2>
       <p>{text}</p>
+      {isRead && <p>Read</p>}
     </div>
   );
 }
