@@ -55,11 +55,19 @@ function App() {
     setUsers(newUser);
   };
 
+  const addSalaryEmplHandle = () => {
+    let newUser = [...users];
+    newUser.forEach(elem => (elem.salary = Math.round(elem.salary * 1.1)));
+
+    setUsers([...newUser]);
+  };
+
   return (
     <div>
       <div>
         <button onClick={addEmplHandle}>Add new user</button>
         <button onClick={remLastEmplHandle}>Delete last user</button>
+        <button onClick={addSalaryEmplHandle}>Salary on 10%</button>
       </div>
       <div>
         {users.map(elem => (
