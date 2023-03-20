@@ -9,9 +9,9 @@
 }
 
 function UserInfo(props) {
-  const { name, salary } = props;
+  const { name, salary, id, deleteUserById } = props;
   return (
-    <div>
+    <div onClick={() => deleteUserById(id)}>
       <h2>{name}</h2>
       <p>{salary}</p>
     </div>

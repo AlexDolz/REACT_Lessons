@@ -56,11 +56,58 @@ function App() {
   };
 
   const addSalaryEmplHandle = () => {
-    let newUser = [...users];
-    newUser.forEach(elem => (elem.salary = Math.round(elem.salary * 1.1)));
+    let newSalary = [...users];
+    newSalary.forEach(elem => (elem.salary = Math.round(elem.salary * 1.1)));
 
-    setUsers([...newUser]);
+    setUsers(newSalary);
   };
+  // 2 Solution with map
+  // const addSalaryEmplHandle2 = () => {
+  //   let newSalary = users.map(elem => ({
+  //     ...elem,
+  //     salary: Math.round(elem.salary * 1.1),
+  //   }));
+
+  //   setUsers(newSalary);
+  // };
+
+  const deleteUserById = id => {
+    let newUsers = users.filter(elem => elem.id != id);
+    setUsers(newUsers);
+  };
+
+  // Задание: реализовать кнопку, которая будет удалять элементы по ID
+  // Примечание: id должен указываться в модальном окне
+
+  // Доп. задание: внутри функции deleteUserByModal сделать проверку на существование элемента
+  // При указании неизвестного ID необходимо вызвать alert с сообщение о том, что пользователя не существует
+  // В противном случае найденного пользователя нужно удалить
+
+  const deleteUserByModal = () => {
+    let modalResult = +prompt('Enter ID');
+    const usersId = users.map(elem => elem.id);
+    if (usersId.includes(modalResult)) {
+      deleteUserById(modalResult);
+    } else {
+      alert('User is not defined');
+    }
+
+    // let newUsers = users.filter(elem => elem.id != modalResult);
+    // setUsers(newUsers);
+  };
+  // 2 Solution
+  // const deleteUserByModal2 = () => {
+  //   let modalResult = +prompt('Enter ID');
+  //   const foundUser = users.find(elem => elem.id == modalResult);
+  //   if (foundUser) {
+  //     deleteUserById(modalResult);
+  //   } else {
+  //     alert('User is not defined');
+  //   }
+
+  //   // let newUsers = users.filter(elem => elem.id != modalResult);
+  //   // setUsers(newUsers);
+  // };
 
   return (
     <div>
@@ -68,10 +115,18 @@ function App() {
         <button onClick={addEmplHandle}>Add new user</button>
         <button onClick={remLastEmplHandle}>Delete last user</button>
         <button onClick={addSalaryEmplHandle}>Salary on 10%</button>
+        {/* <button onClick={() => deleteUserById(3)}>Delete User test</button> */}
+        <button onClick={deleteUserByModal}>Delete User by Modal</button>
       </div>
       <div>
         {users.map(elem => (
-          <UserInfo key={elem.id} name={elem.name} salary={elem.salary} />
+          <UserInfo
+            key={elem.id}
+            name={elem.name}
+            salary={elem.salary}
+            id={elem.id}
+            deleteUserById={deleteUserById}
+          />
         ))}
       </div>
     </div>
