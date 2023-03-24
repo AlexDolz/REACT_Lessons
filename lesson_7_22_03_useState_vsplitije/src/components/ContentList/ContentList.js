@@ -6,7 +6,13 @@ const ContentList = props => {
   return (
     <div>
       {card.map(elem => (
-        <ContentItem name={elem.name} price={elem.price} />
+        <ContentItem
+          key={elem.id}
+          name={elem.name}
+          price={elem.price}
+          check={elem.check}
+          isSale={elem.isSale}
+        />
       ))}
     </div>
   );
