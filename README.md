@@ -9,3 +9,4 @@
 - [Lesson-5_13_03_map_useState](https://github.com/AlexDolz/REACT_Lessons/tree/main/lesson_5_13_03_map_usestate)
 - [Lesson-6_13_03_useState_number_string](https://github.com/AlexDolz/REACT_Lessons/tree/main/lesson_6_15_03_useState_number_string)
 - [Lesson-7_22_03_useState_vsplitije](https://github.com/AlexDolz/REACT_Lessons/tree/main/lesson_7_22_03_usaeState_vsplitije)
+- [Lesson-8_27_03_useEffect](https://github.com/AlexDolz/REACT_Lessons/tree/main/lesson_8_27_03_use_effect)
