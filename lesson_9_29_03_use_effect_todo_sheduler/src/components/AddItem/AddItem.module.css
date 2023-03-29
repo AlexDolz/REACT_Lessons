@@ -1,0 +1,10 @@
+.input__container {
+  display: flex;
+  justify-content: center;
+}
+
+.input__elem {
+  margin-top: 20px;
+  width: 220px;
+  box-shadow: 5px 5px 15px black;
+}
