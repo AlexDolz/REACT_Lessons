@@ -1,6 +1,7 @@
 import AddItem from './components/AddItem/AddItem';
 import TodoList from './components/TodoList/TodoList';
 import { useEffect, useState } from 'react';
+import { TodoContext } from './context/TodoContext';
 
 const App = () => {
   const startTodos = [
@@ -76,8 +77,14 @@ const App = () => {
 
   return (
     <div>
-      <AddItem addTodo={addTodo} />
-      <TodoList todos={todos} changeTodo={changeTodo} removeTodo={removeTodo} />
+      <TodoContext.Provider value={{ changeTodo, removeTodo }}>
+        <AddItem addTodo={addTodo} />
+        <TodoList
+          todos={todos}
+          changeTodo={changeTodo}
+          removeTodo={removeTodo}
+        />
+      </TodoContext.Provider>
     </div>
   );
 };

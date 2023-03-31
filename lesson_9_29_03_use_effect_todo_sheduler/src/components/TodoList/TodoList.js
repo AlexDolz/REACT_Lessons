@@ -1,7 +1,7 @@
 import TodoItem from '../TodoItem/TodoItem';
 import s from './TodoList.module.css';
 
-const TodoList = ({ todos, changeTodo, removeTodo }) => {
+const TodoList = ({ todos }) => {
   return (
     <div className={s.todos__wrapper}>
       {todos.map(elem => (
@@ -10,8 +10,6 @@ const TodoList = ({ todos, changeTodo, removeTodo }) => {
           id={elem.id}
           title={elem.title}
           completed={elem.completed}
-          changeTodo={changeTodo}
-          removeTodo={removeTodo}
         />
       ))}
     </div>
