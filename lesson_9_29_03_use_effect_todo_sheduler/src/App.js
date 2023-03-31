@@ -48,7 +48,13 @@ const App = () => {
   // Task to add new todo
   const addTodo = title => {
     const todo = {
-      id: Math.max(...todos.map(elem => elem.id)) + 1,
+      id:
+        Math.max(...todos.map(elem => elem.id)) + 1 === -Infinity
+          ? 1
+          : Math.max(...todos.map(elem => elem.id)) + 1,
+      // Math.max(...todos.map(elem => elem.id)) + 1 < 0 the same
+      //   ? 1
+      //   : Math.max(...todos.map(elem => elem.id)) + 1,
       title: title,
       completed: false,
     };
@@ -57,7 +63,7 @@ const App = () => {
 
   // ------------- useEffect + localStorage
   useEffect(() => {
-    let todosItem = JSON.parse(localStorage.getItem('todos'));
+    let todosItem = JSON.parse(localStorage.getItem('todos')) || todos;
     setTodos(todosItem);
   }, []);
 
