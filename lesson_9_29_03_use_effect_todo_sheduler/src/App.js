@@ -61,6 +61,9 @@ const App = () => {
     setTodos([todo, ...todos]);
   };
 
+  //   Задание:
+  // Вместо текстового сво-ва true (false) реализуйте параграф, который будет отображать текстовое сво-во Выполнено/ Не выполнено
+
   // ------------- useEffect + localStorage
   useEffect(() => {
     let todosItem = JSON.parse(localStorage.getItem('todos')) || todos;

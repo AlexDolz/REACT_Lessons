@@ -9,6 +9,7 @@ const TodoItem = ({ id, title, completed, changeTodo, removeTodo }) => {
   const itemStyles = {
     background: completed ? 'green' : 'red',
   };
+  const status = completed ? 'completed' : 'not completed';
 
   return (
     <div
@@ -18,7 +19,7 @@ const TodoItem = ({ id, title, completed, changeTodo, removeTodo }) => {
       onDoubleClick={() => removeTodo(id)}
     >
       <h2>{title}</h2>
-      <p>{'' + completed}</p>
+      <p>{status}</p>
     </div>
   );
 };
