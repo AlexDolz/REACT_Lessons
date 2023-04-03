@@ -1,0 +1,25 @@
+.header__wrapper {
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 180px;
+  background: cornflowerblue;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  background: lightgrey;
+  border-radius: 50%;
+}
+
+.menu__wrapper {
+  display: flex;
+  gap: 50px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}

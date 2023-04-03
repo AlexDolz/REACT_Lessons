@@ -1,0 +1,9 @@
+.not__found__section {
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.not__found__section img {
+  width: 650px;
+}
