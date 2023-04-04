@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import s from './GoodsPage.module.css';
+import GoodsItem from '../../GoodsItem/GoodsItem';
 
 const GoodsPage = () => {
   let [products, setProducts] = useState([]);
@@ -8,17 +9,17 @@ const GoodsPage = () => {
     const url = 'https://fakestoreapi.com/products';
     fetch(url)
       .then(res => res.json())
-      .then(data => {
-        setProducts(data);
-      });
+      .then(data => setProducts(data));
   }, []);
 
   return (
-    <div className={s.goods__section}>
-      {products.map((elem, index) => {
-        <div key={index} {...elem}></div>;
-      })}
+    <div>
       <h1>Goods online shopping</h1>
+      <div className={s.goods__section}>
+        {products.map((elem, index) => (
+          <GoodsItem key={index} {...elem} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,7 +1,14 @@
 .goods__section {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+  gap: 50px;
+  background: blanchedalmond;
+  padding: 20px 20px;
+}
+
+div h1 {
+  text-align: center;
+  padding: 50px 0;
   background: blanchedalmond;
 }
