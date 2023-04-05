@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import s from './GoodsPage.module.css';
-import GoodsItem from '../../GoodsItem/GoodsItem';
+import GoodsList from '../../GoodsList/GoodsList';
 
 const GoodsPage = () => {
   let [products, setProducts] = useState([]);
@@ -16,9 +16,7 @@ const GoodsPage = () => {
     <div>
       <h1>Goods online shopping</h1>
       <div className={s.goods__section}>
-        {products.map((elem, index) => (
-          <GoodsItem key={index} {...elem} />
-        ))}
+        <GoodsList products={products} />
       </div>
     </div>
   );

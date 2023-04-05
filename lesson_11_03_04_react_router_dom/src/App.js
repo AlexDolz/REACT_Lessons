@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NotFoundPage from './components/Pages/NotFoundPage/NotFoundPage';
 import Footer from './components/Footer/Footer';
 import HomePage from './components/Pages/HomePage/HomePage';
+import GoodInfoPage from './components/Pages/GoodInfoPage/GoodInfoPage';
 
 // Задание:
 // а)
@@ -28,6 +29,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/goods' element={<GoodsPage />} />
+          <Route path='/goods/:id' element={<GoodInfoPage />} />
           <Route path='/about' element={<AboutPage />} />
           <Route path='/contacts' element={<ContactsPage />} />
           <Route path='*' element={<NotFoundPage />} />
