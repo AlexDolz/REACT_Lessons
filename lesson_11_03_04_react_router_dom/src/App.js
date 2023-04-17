@@ -24,8 +24,8 @@ import GoodInfoPage from './components/Pages/GoodInfoPage/GoodInfoPage';
 const App = () => {
   return (
     <div>
-      <Header />
       <Router>
+        <Header />
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/goods' element={<GoodsPage />} />

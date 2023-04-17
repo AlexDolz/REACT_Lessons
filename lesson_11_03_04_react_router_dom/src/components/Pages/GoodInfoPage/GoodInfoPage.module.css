@@ -1,0 +1,33 @@
+.goods__info__page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.goods__info__page h1 {
+  background: white;
+}
+
+.goods__info__page img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 76px;
+}
+
+.goods__info__page button {
+  margin-top: 20px;
+  width: 70px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  background: goldenrod;
+  cursor: pointer;
+  color: white;
+}
+
+.goods__info__page button:hover {
+  background-color: rgba(218, 165, 32, 0.818);
+}
