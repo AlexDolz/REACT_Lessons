@@ -47,7 +47,7 @@ const App = () => {
     },
   });
 
-  // console.log(errors);
+  // console.log(errors); test
 
   return (
     <div>
