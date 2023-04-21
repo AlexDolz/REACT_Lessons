@@ -1,0 +1,20 @@
+.header {
+  height: 150px;
+  background: bisque;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  background: brown;
+  border-radius: 50%;
+}
+
+.menu__wrapper {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+}
