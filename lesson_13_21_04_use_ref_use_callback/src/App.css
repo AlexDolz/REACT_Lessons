@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 30px;
+  height: 250px;
+  width: 80%;
+  border: 1px solid cornflowerblue;
+  overflow: auto;
+  list-style: none;
+}
+
+li {
+  border: 1px solid cornflowerblue;
+  padding: 20px;
+}
+
+button {
+  width: 80%;
+  height: 50px;
+  cursor: pointer;
+  margin: 30px;
+}
