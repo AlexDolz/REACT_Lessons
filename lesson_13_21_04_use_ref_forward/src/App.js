@@ -9,15 +9,20 @@ const App = () => {
   let block1Ref = useRef();
   let block2Ref = useRef();
 
+  const scrollToBlock1 = () => {
+    block1Ref.current.scrollIntoView({ behavior: 'smooth' });
+  };
+  const scrollToBlock2 = () => {
+    block2Ref.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div>
-      <Header />
+      <Header scrollToBlock1={scrollToBlock1} scrollToBlock2={scrollToBlock2} />
       <Block1 ref={block1Ref} />
       <Block2 ref={block2Ref} />
     </div>
   );
 };
-
-// Homework, pri nazatiji elemnta v header sdelat autoscroll do nuznogo div
 
 export default App;

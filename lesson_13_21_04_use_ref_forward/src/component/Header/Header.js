@@ -1,13 +1,13 @@
 import React from 'react';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ scrollToBlock1, scrollToBlock2 }) => {
   return (
     <div className='header'>
       <div className='logo'></div>
       <div className='menu__wrapper'>
-        <p>Block1</p>
-        <p>Block2</p>
+        <p onClick={scrollToBlock1}>Block1</p>
+        <p onClick={scrollToBlock2}>Block2</p>
       </div>
     </div>
   );
