@@ -31,3 +31,10 @@
 .modal_content.active {
   transform: scale(1);
 }
+
+.x_mark {
+  cursor: pointer;
+  font-size: 26px;
+  position: absolute;
+  right: 5%;
+}
