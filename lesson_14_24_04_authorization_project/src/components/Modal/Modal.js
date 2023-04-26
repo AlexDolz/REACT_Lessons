@@ -7,8 +7,14 @@ import { faX, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const Modal = ({ active, setActive }) => {
   return (
-    <div className={`${s.modal} ${active && s.active}`}>
-      <div className={`${s.modal_content} ${active && s.active}`}>
+    <div
+      onClick={() => setActive(false)}
+      className={`${s.modal} ${active && s.active}`}
+    >
+      <div
+        onClick={event => event.stopPropagation()}
+        className={`${s.modal_content} ${active && s.active}`}
+      >
         <FontAwesomeIcon
           onClick={() => setActive(false)}
           className={s.x_mark}
