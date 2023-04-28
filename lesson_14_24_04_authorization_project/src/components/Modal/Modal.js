@@ -3,7 +3,7 @@ import s from './Modal.module.css';
 import { Routes, Route } from 'react-router-dom';
 import FormElem from '../FormElem/FormElem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faX, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const Modal = ({ active, setActive }) => {
   return (
@@ -54,6 +54,23 @@ const Modal = ({ active, setActive }) => {
                 button={{ redirect: 'Registration', submit: 'Login' }}
                 infoText={'Enter your account username and password'}
                 type={'login'}
+              />
+            }
+          />
+          <Route
+            path='/reset'
+            element={
+              <FormElem
+                title={'Reset password'}
+                link={'/login'}
+                input={{
+                  email: 'Email',
+                }}
+                button={{ redirect: 'Login', submit: 'Confirm reset' }}
+                infoText={
+                  'Please enter your registered account email. A link to reset your password will be sent to your email address. Activation period - 24 hours'
+                }
+                type={'reset'}
               />
             }
           />

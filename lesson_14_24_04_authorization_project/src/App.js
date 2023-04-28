@@ -9,7 +9,7 @@ const App = () => {
 
   return (
     <div>
-      <Link to={'/reg'}>
+      <Link to={'/login'}>
         <Button
           onClick={() => setActive(true)}
           title={'Registration / Login'}
