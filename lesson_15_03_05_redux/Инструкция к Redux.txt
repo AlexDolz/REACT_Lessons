@@ -1,0 +1,16 @@
+﻿1. npm i redux react-redux
+
+
+2. создание папки store (создание файла внутри index.js)
+
+
+3. внутри index.js необходимо создать store и reducer
+
+
+4. на стороне index.js (не внутри store) импортировать Provider (и  store) и передать как проп store = {store}
+
+
+5. Используя useSelector (react-redux) необходимо внутри компонента получить store и далее использовать на стороне разметки
+
+
+6. Используя useDispatch далее осуществляем передачу команд в уже созданный reducer

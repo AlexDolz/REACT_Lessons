@@ -1,10 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { decrByPayloadAction, incrByPayloadAction } from './store/countReducer';
+import {
+  addNewEmplAction,
+  delFirstEmplAction,
+  delLastEmplAction,
+} from './store/emplReducer';
 
 // Добавить в reducer 2 кейса, которые будут добавлять и убавлять значение стейта на 100
 // На стороне компонента сделать 2 кнопки
 
 const App = () => {
-  let count = useSelector(store => store.count);
+  let count = useSelector(store => store.count.count);
+
+  let empl = useSelector(store => store.empl);
 
   // Otpravliajet komandi v reducer na izmenenija hranilisia (store)
   let dispatch = useDispatch();
@@ -15,30 +23,48 @@ const App = () => {
         <h2>Counter</h2>
         <h2>{count}</h2>
 
-        <button onClick={() => dispatch({ type: 'DECR_BY_N', payload: 1 })}>
+        <button onClick={() => dispatch(decrByPayloadAction(1))}>
           Decrement
         </button>
-        <button onClick={() => dispatch({ type: 'INCR_BY_N', payload: 1 })}>
+        <button onClick={() => dispatch(incrByPayloadAction(1))}>
           Increment
         </button>
 
-        <button onClick={() => dispatch({ type: 'DECR_BY_N', payload: 100 })}>
+        <button onClick={() => dispatch(decrByPayloadAction(100))}>
           Decrement - 100
         </button>
-        <button onClick={() => dispatch({ type: 'INCR_BY_N', payload: 100 })}>
+        <button onClick={() => dispatch(incrByPayloadAction(100))}>
           Increment + 100
         </button>
 
-        <button
-          onClick={() => dispatch({ type: 'DECR_BY_N', payload: +prompt() })}
-        >
+        <button onClick={() => dispatch(incrByPayloadAction(+prompt()))}>
           Remove N
         </button>
-        <button
-          onClick={() => dispatch({ type: 'INCR_BY_N', payload: +prompt() })}
-        >
+        <button onClick={() => dispatch(incrByPayloadAction(+prompt()))}>
           Add N
         </button>
+      </div>
+
+      <div>
+        <h2>Workers</h2>
+        <button onClick={() => dispatch(delFirstEmplAction())}>
+          Delete first worker
+        </button>
+        <button onClick={() => dispatch(delLastEmplAction())}>
+          Delete last worker
+        </button>
+        <button onClick={() => dispatch(addNewEmplAction(prompt()))}>
+          Add new worker
+        </button>
+        <div>
+          {empl.map(elem => (
+            <div key={elem.id}>
+              <p>
+                {elem.name} {elem.age}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
