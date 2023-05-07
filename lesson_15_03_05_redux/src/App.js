@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { decrByPayloadAction, incrByPayloadAction } from './store/countReducer';
 import {
   addNewEmplAction,
+  delEmplByIdAction,
   delFirstEmplAction,
   delLastEmplAction,
 } from './store/emplReducer';
@@ -59,7 +60,7 @@ const App = () => {
         <div>
           {empl.map(elem => (
             <div key={elem.id}>
-              <p>
+              <p onDoubleClick={() => dispatch(delEmplByIdAction(elem.id))}>
                 {elem.name} {elem.age}
               </p>
             </div>
