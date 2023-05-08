@@ -2,10 +2,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { decrByPayloadAction, incrByPayloadAction } from './store/countReducer';
 import {
   addNewEmplAction,
+  changeAgeAction,
   delEmplByIdAction,
   delFirstEmplAction,
   delLastEmplAction,
+  resetAgeAction,
 } from './store/emplReducer';
+import './App.css';
 
 // Добавить в reducer 2 кейса, которые будут добавлять и убавлять значение стейта на 100
 // На стороне компонента сделать 2 кнопки
@@ -59,12 +62,21 @@ const App = () => {
         </button>
         <div>
           {empl.map(elem => (
-            <div key={elem.id}>
-              <p onDoubleClick={() => dispatch(delEmplByIdAction(elem.id))}>
+            <div
+              onDoubleClick={() => dispatch(delEmplByIdAction(elem.id))}
+              key={elem.id}
+            >
+              <p title='DoubleClick to remove empl.'>
                 {elem.name} {elem.age}
               </p>
             </div>
           ))}
+          <button onClick={() => dispatch(changeAgeAction(10))}>
+            Change Age
+          </button>
+          <button onClick={() => dispatch(resetAgeAction(0))}>
+            Reset Age to 0
+          </button>
         </div>
       </div>
     </div>
