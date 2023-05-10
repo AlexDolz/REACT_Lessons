@@ -31,6 +31,10 @@ export const userReducer = (state = defaultState, action) => {
     case ADD_NEW_USERS_LIST:
       return { ...state, users: [...state.users, ...action.payload] }; // action.payload eto rezultat fetch zaprosa (novij massiv s dannimi)
     case FETCH_ADD_NEW_USER:
+      if (action.payload.id === undefined) {
+        alert('False ID');
+        return state;
+      }
       return { ...state, users: [...state.users, action.payload] };
 
     default:
