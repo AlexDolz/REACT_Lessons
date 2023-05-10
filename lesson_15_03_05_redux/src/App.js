@@ -9,6 +9,9 @@ import {
   resetAgeAction,
 } from './store/emplReducer';
 import './App.css';
+import { addNewUserAction, delUserAction } from './store/userReducer';
+import { fetchUserById, fetchUsersList } from './asyncActions/users';
+import { useEffect } from 'react';
 
 // Добавить в reducer 2 кейса, которые будут добавлять и убавлять значение стейта на 100
 // На стороне компонента сделать 2 кнопки
@@ -18,8 +21,13 @@ const App = () => {
 
   let empl = useSelector(store => store.empl);
 
+  let users = useSelector(store => store.users.users);
   // Otpravliajet komandi v reducer na izmenenija hranilisia (store)
   let dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(fetchUsersList());
+  // }, []); // cto bi dannije s UserList srazu peredavalis pri zagruzke stranici pisem useEffect
 
   return (
     <div>
@@ -78,6 +86,25 @@ const App = () => {
             Reset Age to 0
           </button>
         </div>
+      </div>
+      <div>
+        <h2>Users</h2>
+        <button onClick={() => dispatch(addNewUserAction(prompt()))}>
+          Add new user
+        </button>
+        <button onClick={() => dispatch(fetchUsersList())}>
+          Add Users list (Async)
+        </button>
+        <button onClick={() => dispatch(fetchUserById(prompt()))}>
+          Add User by id (Async)
+        </button>
+        <ul>
+          {users.map((elem, index) => (
+            <li onClick={() => dispatch(delUserAction(elem.id))} key={index}>
+              {elem.name}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
