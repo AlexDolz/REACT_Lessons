@@ -18,3 +18,4 @@
 - [Lesson-13_21_04_use_ref_use_forward](https://github.com/AlexDolz/REACT_Lessons/tree/main/lesson_13_21_04_use_ref_forward)
 - [Lesson-14_24_04_authorization_project](https://github.com/AlexDolz/REACT_Lessons/tree/main/lesson_14_24_04_authorization_project)
 - [Lesson-15_03_05_redux](https://github.com/AlexDolz/REACT_Lessons/tree/main/lesson_15_03_05_redux)
+- [Lesson-16_12_05_memo_use_memo](https://github.com/AlexDolz/REACT_Lessons/tree/main/lesson_16_12_05_memo_use_memo)
