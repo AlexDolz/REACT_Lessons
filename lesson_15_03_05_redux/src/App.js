@@ -12,6 +12,11 @@ import './App.css';
 import { addNewUserAction, delUserAction } from './store/userReducer';
 import { fetchUserById, fetchUsersList } from './asyncActions/users';
 import { useEffect } from 'react';
+import {
+  addNewProductCartAction,
+  decrCountCartProductAction,
+  incrCountCartProductAction,
+} from './store/cartReducer';
 
 // Добавить в reducer 2 кейса, которые будут добавлять и убавлять значение стейта на 100
 // На стороне компонента сделать 2 кнопки
@@ -22,12 +27,21 @@ const App = () => {
   let empl = useSelector(store => store.empl);
 
   let users = useSelector(store => store.users.users);
+
+  let cart = useSelector(store => store.cart);
+
+  console.log(cart);
   // Otpravliajet komandi v reducer na izmenenija hranilisia (store)
   let dispatch = useDispatch();
 
   // useEffect(() => {
   //   dispatch(fetchUsersList());
   // }, []); // cto bi dannije s UserList srazu peredavalis pri zagruzke stranici pisem useEffect
+
+  // LocarStorage for Cart
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <div>
@@ -105,6 +119,39 @@ const App = () => {
             </li>
           ))}
         </ul>
+      </div>
+      <div>
+        <h2>Cart</h2>
+        <button onClick={() => dispatch(addNewProductCartAction(prompt()))}>
+          Add new product
+        </button>
+        <div>
+          {cart.map((elem, index) => (
+            <div style={{ display: 'flex', gap: '10px' }} key={index}>
+              <p>{elem.title}</p>
+              <div
+                style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
+              >
+                <button
+                  onClick={() =>
+                    dispatch(decrCountCartProductAction(elem.id, index))
+                  }
+                >
+                  -
+                </button>
+                <p>{elem.count}</p>
+                <button
+                  // disabled={elem.count >= 10} cto bi otkliucit knopku
+                  onClick={() =>
+                    dispatch(incrCountCartProductAction(elem.id, index))
+                  }
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
