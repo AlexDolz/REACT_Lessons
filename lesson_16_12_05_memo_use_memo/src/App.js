@@ -10,11 +10,11 @@ const App = () => {
   return (
     <div>
       <div className='div__elem'>
-        <Counter value={counter1} />
+        <Counter elem={'count1'} value={counter1} />
         <button onClick={() => setCounter1(++counter1)}>+</button>
       </div>
       <div className='div__elem'>
-        <Counter value={counter2} />
+        <Counter elem={'count2'} value={counter2} />
         <button onClick={() => setCounter2(++counter2)}>+</button>
       </div>
       <Burden value={counter2} />

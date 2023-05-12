@@ -1,9 +1,14 @@
 import React from 'react';
 
-let render = 0;
+let render = {
+  count1: 0,
+  count2: 0,
+};
 
-const Counter = ({ value }) => {
-  console.log(`Component Counter was updated ${++render} times`);
+const Counter = ({ value, elem }) => {
+  console.log(
+    `Component Counter (${elem}) was updated ${++render[elem]} times`
+  );
 
   return (
     <div>
