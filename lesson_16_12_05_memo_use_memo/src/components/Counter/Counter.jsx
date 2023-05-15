@@ -1,13 +1,15 @@
-import React from 'react';
+import { memo } from 'react';
 
 let render = {
   count1: 0,
   count2: 0,
 };
 
-const Counter = ({ value, elem }) => {
+function Counter(props) {
+  const { value, elem } = props;
+
   console.log(
-    `Component Counter (${elem}) was updated ${++render[elem]} times`
+    `Компонет Counter (${elem}) был обновлен ${++render[elem]} раз/раза`
   );
 
   return (
@@ -15,6 +17,10 @@ const Counter = ({ value, elem }) => {
       <h2>{value}</h2>
     </div>
   );
-};
+}
 
-export default Counter;
+export default memo(Counter);
+
+// export default memo(Counter, (oldProp,newProp) => {
+//     console.log(oldProp,newProp)
+// })
