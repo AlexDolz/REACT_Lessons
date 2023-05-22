@@ -5,6 +5,7 @@ const App = () => {
     <div>
       <div style={{ width: '100%' }}>
         <iframe
+          title='googleMaps'
           width='100%'
           height='600'
           frameborder='0'
