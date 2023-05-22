@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewUserAction, delUserAction } from '../store/userReducer';
 import { fetchUserById, fetchUsersList } from '../asyncActions/users';
@@ -36,4 +36,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default memo(Users);

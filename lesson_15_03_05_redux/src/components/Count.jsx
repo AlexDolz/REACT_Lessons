@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   decrByPayloadAction,
@@ -40,4 +40,4 @@ const Count = () => {
   );
 };
 
-export default Count;
+export default memo(Count);

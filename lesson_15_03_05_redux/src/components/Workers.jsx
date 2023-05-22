@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addNewEmplAction,
@@ -49,4 +49,4 @@ const Workers = () => {
   );
 };
 
-export default Workers;
+export default memo(Workers);
