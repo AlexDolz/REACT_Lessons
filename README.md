@@ -19,3 +19,5 @@
 - [Lesson-14_24_04_authorization_project](https://github.com/AlexDolz/REACT_Lessons/tree/main/lesson_14_24_04_authorization_project)
 - [Lesson-15_03_05_redux](https://github.com/AlexDolz/REACT_Lessons/tree/main/lesson_15_03_05_redux)
 - [Lesson-16_12_05_memo_use_memo](https://github.com/AlexDolz/REACT_Lessons/tree/main/lesson_16_12_05_memo_use_memo)
+- [Lesson-17_17_05_maps_iframe](https://github.com/AlexDolz/REACT_Lessons/tree/main/lesson_17_17_05_google_maps)
+- [Lesson-18_24_05_filter](https://github.com/AlexDolz/REACT_Lessons/tree/main/lesson_18_24_05_filter_products)
