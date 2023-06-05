@@ -23,6 +23,10 @@ const ProductListPage = ({ type }) => {
     }
   }, [id, type]);
 
+  useEffect(() => {
+    document.title = titlePage.title;
+  }, [titlePage]);
+
   return (
     <div>
       <h2>{titlePage.title}</h2>
