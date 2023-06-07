@@ -5,6 +5,7 @@ import {
   delUserAction,
 } from '../store/oldReduxReducers/userReducer';
 import { fetchUserById, fetchUsersList } from '../asyncActions/users';
+import { addNewUser, removeById } from '../store/toolkitReducer/userSlice';
 
 const Users = () => {
   let users = useSelector(store => store.users.users);
@@ -18,7 +19,7 @@ const Users = () => {
     <div>
       <div>
         <h2>Users</h2>
-        <button onClick={() => dispatch(addNewUserAction(prompt()))}>
+        <button onClick={() => dispatch(addNewUser(prompt()))}>
           Add new user
         </button>
         <button onClick={() => dispatch(fetchUsersList())}>
@@ -29,7 +30,7 @@ const Users = () => {
         </button>
         <ul>
           {users.map((elem, index) => (
-            <li onClick={() => dispatch(delUserAction(elem.id))} key={index}>
+            <li onClick={() => dispatch(removeById(elem.id))} key={index}>
               {elem.name}
             </li>
           ))}

@@ -27,7 +27,7 @@ export const userReducer = (state = defaultState, action) => {
         ...state,
         users: state.users.filter(elem => elem.id !== action.payload),
       };
-    // Esli bi hotel dobacit esio cto to togda return {...state, users: [...state.users.filter(elem => elem.id !== action.payload), {id: 25, name: test}],
+    // Esli bi hotel dobavit esio cto to togda return {...state, users: [...state.users.filter(elem => elem.id !== action.payload), {id: 25, name: test}],
     case ADD_NEW_USERS_LIST:
       return { ...state, users: [...state.users, ...action.payload] }; // action.payload eto rezultat fetch zaprosa (novij massiv s dannimi)
     case FETCH_ADD_NEW_USER:

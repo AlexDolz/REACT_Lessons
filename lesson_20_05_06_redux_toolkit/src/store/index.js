@@ -11,6 +11,8 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import countReducer from './toolkitReducer/countReducer';
 import countSlice from './toolkitReducer/countSlice';
 import emplSlice from './toolkitReducer/emplSlice';
+import userSlice from './toolkitReducer/userSlice';
+import postListSlice from './toolkitReducer/postListSlice';
 
 // CombineReducer objedenijaet neskolko reducers
 // const rootReducer = combineReducers({
@@ -24,6 +26,8 @@ const rootReducer = combineReducers({
   // count: countReducer,
   count: countSlice,
   empl: emplSlice,
+  users: userSlice,
+  posts: postListSlice,
 });
 
 // export const store = createStore(rootReducer, applyMiddleware(thunk));
