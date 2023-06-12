@@ -36,11 +36,20 @@ const postListSlice = createSlice({
         title: action.payload,
       });
     },
+    remPostItem(state, action) {
+      state.commentList = state.commentList.filter(
+        elem => elem.postId !== action.payload
+      ); // cto bi udalialis kommentariji v hranilise toze
+      state.postList = state.postList.filter(
+        elem => elem.postId !== action.payload
+      );
+    },
   },
 });
 
 export default postListSlice.reducer;
-export const { addNewComment, remComment, addNewPost } = postListSlice.actions;
+export const { addNewComment, remComment, addNewPost, remPostItem } =
+  postListSlice.actions;
 
 // Задание 1.
 // Реализуйте добавление комментария через input, определив новый кейс.

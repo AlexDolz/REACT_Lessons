@@ -4,6 +4,7 @@ import {
   addNewComment,
   remComment,
   addNewPost,
+  remPostItem,
 } from '../store/toolkitReducer/postListSlice';
 
 const PostList = () => {
@@ -29,7 +30,13 @@ const PostList = () => {
       <div>
         {postList.map((elem, index) => (
           <div key={index}>
-            <h3>{elem.title}</h3>
+            <h3>
+              {elem.title}{' '}
+              <button onClick={() => dispatch(remPostItem(elem.postId))}>
+                X
+              </button>
+            </h3>
+
             <div>
               {commentList
                 .filter(value => value.postId === elem.postId)
