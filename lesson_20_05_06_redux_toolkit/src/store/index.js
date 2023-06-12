@@ -14,6 +14,19 @@ import emplSlice from './toolkitReducer/emplSlice';
 import userSlice from './toolkitReducer/userSlice';
 import postListSlice from './toolkitReducer/postListSlice';
 
+// ----------------------------------------
+// redux-persist for localStorage
+import {
+  persistReducer,
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 // CombineReducer objedenijaet neskolko reducers
 // const rootReducer = combineReducers({
 //   count: countReducer,
@@ -21,6 +34,16 @@ import postListSlice from './toolkitReducer/postListSlice';
 //   users: userReducer,
 //   cart: cartReducer,
 // });
+
+// vazen poriadok
+
+const persistConfig = {
+  key: 'posts',
+  version: 1,
+  storage,
+  whitelist: ['posts'], // to cto bi pokazivalo i sledilo
+  blacklist: ['count'], // to ctobi ne pokazivalo i ne sledilo
+};
 
 const rootReducer = combineReducers({
   // count: countReducer,
@@ -30,7 +53,16 @@ const rootReducer = combineReducers({
   posts: postListSlice,
 });
 
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 // export const store = createStore(rootReducer, applyMiddleware(thunk));
 export const store = configureStore({
-  reducer: rootReducer,
+  // reducer: rootReducer, bez persist
+  reducer: persistedReducer, // s redux persist
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoreActions: [FLUSH, REGISTER, REHYDRATE, PAUSE, PURGE, PERSIST],
+      },
+    }),
 });

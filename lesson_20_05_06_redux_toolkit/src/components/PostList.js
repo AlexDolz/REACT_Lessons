@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   addNewComment,
   remComment,
+  addNewPost,
 } from '../store/toolkitReducer/postListSlice';
 
 const PostList = () => {
@@ -15,12 +16,16 @@ const PostList = () => {
       // console.log(postId, e.target.value);
 
       dispatch(addNewComment({ postId, message: e.target.value }));
+      e.target.value = '';
     }
   };
 
   return (
     <div>
       <h2>Post list</h2>
+      <button onClick={() => dispatch(addNewPost(prompt()))}>
+        Add new post
+      </button>
       <div>
         {postList.map((elem, index) => (
           <div key={index}>

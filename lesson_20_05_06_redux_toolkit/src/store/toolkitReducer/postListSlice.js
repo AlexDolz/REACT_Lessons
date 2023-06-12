@@ -30,11 +30,17 @@ const postListSlice = createSlice({
         elem => elem.commentId !== action.payload
       );
     },
+    addNewPost(state, action) {
+      state.postList.push({
+        postId: Date.now(),
+        title: action.payload,
+      });
+    },
   },
 });
 
 export default postListSlice.reducer;
-export const { addNewComment, remComment } = postListSlice.actions;
+export const { addNewComment, remComment, addNewPost } = postListSlice.actions;
 
 // Задание 1.
 // Реализуйте добавление комментария через input, определив новый кейс.
